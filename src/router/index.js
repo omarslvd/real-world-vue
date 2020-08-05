@@ -13,28 +13,29 @@ const routes = [
     component: EventList
   },
   {
-    path: "/event",
+    path: "/event/:id",
     name: "EventShow",
+    props: true,
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (event-show.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/EventShow.vue")
+      import(/* webpackChunkName: "event-show" */ "../views/EventShow.vue")
   },
   {
     path: "/event/create",
     name: "EventCreate",
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
+    // this generates a separate chunk (event-create.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/EventCreate.vue")
+      import(/* webpackChunkName: "event-create" */ "../views/EventCreate.vue")
   }
 ];
 
 const router = new VueRouter({
   // Estas líneas difieren si se escoge history o no en el wizard al momento de crear el proyecto
-  // mode: "history",
+  mode: "history",
   // base: process.env.BASE_URL,
   routes
 });
