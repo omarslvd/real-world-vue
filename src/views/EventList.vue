@@ -1,13 +1,18 @@
 <template>
   <div>
     <h1>Events Listing</h1>
-    <EventCard v-for="event in events" v-bind:key="event.id" v-bind:event="event" />
+    <EventCard
+      v-for="event in events"
+      v-bind:key="event.id"
+      v-bind:event="event"
+    />
   </div>
 </template>
 
 <script>
 //import EventCard from "@/components/EventCard.vue";
 import EventCard from "../components/EventCard.vue";
+import EventService from "../services/EventService.js";
 
 export default {
   components: {
@@ -19,7 +24,7 @@ export default {
     };
   },
   created: function() {
-    fetch("http://localhost:3000/events")
+    EventService.getEvents()
       .then(function(response) {
         return response.json();
       })
