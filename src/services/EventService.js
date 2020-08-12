@@ -2,7 +2,7 @@ export default {
   getEvents: function() {
     return fetch("http://localhost:3000/events");
   },
-  gteEvent: function(id) {
+  getEvent: function(id) {
     return fetch("http://localhost:3000/events/" + id);
   }
 };

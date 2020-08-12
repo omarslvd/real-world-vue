@@ -39,7 +39,7 @@ export default {
     };
   },
   created: function() {
-    EventService.gteEvent(this.id)
+    EventService.getEvent(this.id)
       .then(function(response) {
         return response.json();
       })
